@@ -1,4 +1,5 @@
-# Minimalist guide to Python(if you don't have time,skip this and goto the txt)
+#if you don't have time,skip this and goto the txt file
+# Minimalist guide to Python(
 Python is one of the most beautifully designed language.
 Simple and Clear and Obvious. It is my first programming language,
 and I managed to learn it in a weekend (though not some obscure part, ie multiple inherience).
@@ -16,3 +17,9 @@ mail list: minpy@googlegroups.com , forum: https://groups.google.com/d/forum/min
 or telegram: telegram.me/minpy
 Please don't repost, cause I want to keep track on the schedule
 Presently ~400 lines excluding comment and execution result
+
+
+#Why minimalism?
+1)I consider minimalism as implied by Occam's razor, which means it should more accurate represent what it is.
+2)Generally, less instructions means the program will run faster.
+3)It is less likely to make bugs as your mind doesn't have to keep tract of lots of expressions, and for those expression you need to keep track on, you clearly know why they exsist and what they behave.
