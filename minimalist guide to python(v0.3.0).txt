@@ -61,7 +61,6 @@ h="hello"
 print(h)
 g='world'
 print(h+" "+g)
-$hello world
 print(len(h))
 print(h.count("l"))
 print("wor" in g)
