@@ -2,8 +2,8 @@
 |Non-minimalist preface (can be ignored)
 Python is one of the most beautifully designed language.
 Simple and Clear and Obvious. It is my first programming language,
-and I managed to learn it in a weekend. This tutorial as
-aims to further shorten the time to matter of hours,
+and I managed to learn it in a weekend (though not some obscure part, ie multiple inherience).
+This tutorial aims to further shorten the time to matter of hours,
 by remove unnecessary materials in documentations, primer, stackoverflow answers and blogs,
 keeping the noise to signal ratio as low as possible,
 while covering every edge case possible.
@@ -13,91 +13,82 @@ will be discussed
 Best practice and rational behind will not be discussed.
 (Maybe write about this latter)
 In case you have trouble on this book, ask me, either through traditional
-mail list: minpy@googlegroups.com , forum: https://groups.google.com/d/forum/minpy or
-telegram: telegram.me/minpy
+mail list: minpy@googlegroups.com , forum: https://groups.google.com/d/forum/minpy
+or telegram: telegram.me/minpy
 Please don't repost, cause I want to keep track on the schedule
 Presently ~300 lines excluding comment and execution result
 """
 
 """
 |How to use this book
+This book mainly target Python 3 and Python 2.6 and above are supported.
+Both interactive mode and script mode produce the same result.
 Read, predict, type and run, check answer, ask me if you can't understand
-(cause it is my problem and i have the responsibility to deal with it)
+(cause if you don't understand, it's probabily
+1. I am wrong, I misunderstood what's going on in Python
+2. I presented poorly and I need to improve)
 """
 """
-|Addtional guide to BNF grammar used as reference
-
-#Assignment and
+|Addtional guide to BNF grammar used as reference (presently not used)
+This is for pure reference only. It is good if you can understand, but even you
+can't, this doesn't harm your ability in programming Python or programming in general.
+"""
+#Assignment and arithmetic
 a=1
 print(a)
-#1
 print(Cd3)
-#Traceback (most recent call last):
-#  File "<pyshell#2>", line 1, in <module>
-#    Cd3
-#NameError: name 'Cd3' is not defined
 B2,cD3,Cd3,__internal__= 2,3.0 , 8/2,2**3
 print(B2)
-#2
 print(cD3,Cd3)
-#3.0 4.0
 #case sensitive
 3cd = 5
-#SyntaxError: invalid syntax
 #cannot start with number
 del Cd3
 print(Cd3)
-#Traceback (most recent call last):
-#  File "<pyshell#8>", line 1, in <module>
-#    Cd3
-#NameError: name 'Cd3' is not defined
 e=f=a
 print(e,f,a)
-#1 1 1
 E=a*B2-cD3/4
 print(E)
-#1.25
 print(a)
-#1
 a+=1
 print(a)
-#2
 a-=1
 a*=2
 a/=2
 
 
 h="hello"
+print(h)
 g='world'
 print(h+" "+g)
-#hello world
-print(h.count(),len(h))
+$hello world
+print(len(h))
+print(h.count("l"))
 print("wor" in g)
 print("" in g)
 print(h.index("el"))
-print(h.index("l"))
+print(h[1:2])
 print(h.index("j"))
-print(h.find("l"))
 print(h.find("j"))
 print("{0},{2},{1}".format(1,2,3))
 
-print(cD2)
-x=1
-y=2.0
-z=3
+
 print(True and False, True or False, not True)
 if True:
     print(True)
 if False:
     print("This will not execute, ie print")
+x=1
+y=2.0
+z=3
 if x<y:
   print("x<y")
-elif x>y: #elif->else if
+elif x>y: $elif->else if
   print("y<x")
 else: print("x=y")
 print(x+y==3,1.0==1)
-print(x<=y<z)#a<=b -> a<b or a==b
-i=1
+print(x<=y<z)$a<=b -> a<b or a==b
+i=0
 while i<9:
     print(i)
 end=9
@@ -109,14 +100,10 @@ for i in range(start,end):
 start,end,step=0,-10,-2
 for i in range(start,end,step):
     print(i)
-
-
 a=[1,2,3,4,5]
 print(a)
 print([1,2.0,"3",[4,[[5],[6]],[],{},set()]])
-print(first)
-print(rest)
-print(last)
+#everything can be put into list
 print(a[0])
 print(a[-1])
 print(a[5])
@@ -217,7 +204,7 @@ c|={4,5}
 print(b,c,b==c)
 for i in c:
     print(i)
-e={i**2 for i in c if i<=3} #from python 2.7 and 3.0 onwards
+e={i**2 for i in c if i<=3} $from python 2.7 and 3.0 onwards
 print(e)
 
 
@@ -246,7 +233,6 @@ print(a)
 for k,v in b.items():
     print(k,v)
 g={k:v*2 for k,v in b.items()}#from python 2.7 and 3.0 onwards
-#dict:setattr
 
 
 #open a new console
@@ -282,7 +268,6 @@ def factorial(n):
     else:
         return n*factorial(n-1)
 print(factorial(3))
-
 def name_age_sex(name,age=0,sex="not avaliable"):
     print(name,age,sex)
 name_age_sex()
@@ -291,7 +276,7 @@ name_age_sex(name="apple")
 name_age_sex("apple",sex="male")
 name_age_sex("pineapple",2,"female")
 print(add(2,3))
-#function: *args,**kwargs
+$function: *args,**kwargs
 def print_all(arg,*args,**kwargs):
     print("first value",arg)
     print("rest value",args)
@@ -299,6 +284,9 @@ def print_all(arg,*args,**kwargs):
 print_all(1,2,3,four=4,five=5)
 print_all(*[1,2,3],**{"four":4,"five":5})
 first,*rest,last=[1,2,3,4,5]#since python 3.0
+print(first)
+print(rest)
+print(last)
 #function:passing function as parameter
 def mapper(fn,args):
     return [fn(i) for i in args]
@@ -312,7 +300,26 @@ for i in map(lambda x:x**2,range(5)):
 permutation=lambda n,r:factorial(n)/factorial(n-r)
 permutation(4,2)
 #function:decorator
-
+def absolute(fn):
+    print("in absolute")
+    def wrapper(*args,**kwargs):
+        print("in wrapper,before function")
+        result = fn(*args,**kwargs)
+        print("in wrapper,after function")
+        if result<0:
+            return 0-result
+        else:
+            return result
+    return wrapper
+def test():
+    print("in test")
+    return -1
+print(test())
+print(absolute(test)())
+@absolute
+def test():
+    return -1
+print(test)
 #Warning!:incomplete
 #open a new console
 class A:
@@ -321,30 +328,113 @@ print(dir(A))
 a=A()
 print(dir(a))
 class Bird:
-    Class="aves"#generally used only for constant
+    Class="aves"#generally used only for constant,but can still be modified through self.Class
     def __init__(self,name="noname"):
         self.name=name
     def flap(self):
-        print(self.name+"flap its wing")
+        print(self.name+" flap its wing")
+    def whoAmI(self):
+        print("I belongs to Class"+self.Class)
+        print("My name is "+self.name)
 print(dir(Bird))
-b=Bird()
+b=Bird("alpha")
 print(dir(b))
 print(b.Class)
+b.whoAmI()
 b.flap()
+#class:inheritance
 class Chicken(Bird):
     Family="Phasianidae"
     def __init__(self,name="noname",owner=None):
         self.owner=owner
-        super(Chicken,self).__init__(name)
-    def flap(self):
-        print("Chicken"+self.name+"flap its wing")
+        super(Chicken,self).__init__(name)#two args in supper for python 2
+        #super().__init__(name) #no args are needed in python 3, auto resolved
+    def whoAmI(self):
+        print("I belongs to Family"+self.Family)
+        super(Chicken,self).whoAmI()
 print(dir(Chicken))
-b=Chicken()
-print(dir(b))
+b=Chicken("beta")
 print(b.Class)
 b.flap()
+b.whoAmI()
+#class:bound/unbound method
+print(Chicken.whoAmI)
+Chicken.whoAmI()
+print(b.whoAmI)
+b.whoAmI()
+Chicken.whoAmI(b)
+Bird.whoAmI(b)
+#class:getattr/setattr
+#import
+import collections
+print(collection.Counter("abracadabra"))
+import collections as c
+print(c.Counter("abracadabra"))
+from collections import OrderedDict
+od=OrderedDict(zip(*range(0,10),*range(0,20,2)))
+print(od)
+print(od[2])
+print(od.popitem())
 
 #class:multiple inherence
-#class:bound/unbound method
-#class:magic:compare,itertor,dictionary
-#incomplete:fuction,class,error,debug,import,pip,file
+#Python method resolution rule folows the c3 linerization
+#Python's super does not work like most other language, ie C++,java
+#Quote: from Super consider super! by Raymond Hettinger
+#ToDO: more example for the complicated nature of multiple inherence
+class OrderedCounter(Counter,OrderedDict):
+    "Counter that remember the ordered of elements by first seen"
+    pass
+
+oc= OrderedCounter('abracadabra')
+print(oc)
+
+#class:magic:compare,itertor,dictionary(incompleted)
+
+#error handeling
+a=1/0
+try:
+    a=1/0
+except:
+    print("this catch all errors inside")
+try:
+    a=1/0
+except Exception as e:
+    print(e)
+class CustomError(Exception):
+    pass
+raise CustomError
+try:
+    a=1/0
+    b=2/""
+    raise CustomError
+except (ZeroDivisionError,TypeError):
+    print("this only activate if ZeroDivisionError or TypeError is raised")
+except CustomError:
+    print("this only activate if CustomError is raised")
+class CustomError(Exception):
+    def __init__(self,e):
+        self.value =value
+try:
+    raise CustomError(2)
+except CustomError as error:
+    if error.value>1:
+        raise
+def divide(x, y):
+    try:
+        result =x/y
+    except ZeroDivisionError:
+        print("division by zero!")
+    else:
+        print("result is ",result)
+    finally("finally always executed if there is no error or error handled")
+divied(2,1)
+divide(2,0)
+divide("2","0")
+
+#pdb
+
+#file
+
+#pip
+
+#incomplete:error,debug,pip,file
