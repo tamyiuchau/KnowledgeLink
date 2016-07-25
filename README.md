@@ -15,4 +15,4 @@ In case you have trouble on this book, ask me, either through traditional
 mail list: minpy@googlegroups.com , forum: https://groups.google.com/d/forum/minpy
 or telegram: telegram.me/minpy
 Please don't repost, cause I want to keep track on the schedule
-Presently ~300 lines excluding comment and execution result
+Presently ~400 lines excluding comment and execution result
