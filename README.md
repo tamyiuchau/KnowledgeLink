@@ -1,5 +1,5 @@
 #if you don't have time,skip this and goto the txt file
-# Minimalist guide to Python(
+# Minimalist guide to Python
 Python is one of the most beautifully designed language.
 Simple and Clear and Obvious. It is my first programming language,
 and I managed to learn it in a weekend (though not some obscure part, ie multiple inherience).
